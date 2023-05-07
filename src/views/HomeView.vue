@@ -2,9 +2,12 @@
   import { useFlash } from '@/composables/useFlash';
   import { useStorage } from '@/composables/useStorage';
   import { ref, provide } from 'vue';
+  import { state } from "@/stores/quizStore.js"
   import TabbableTextarea from '@/components/TabbableTextarea.vue';
 
   let name = ref('John Doe');
+
+
 
   let food = useStorage('food', 'tacos');
   let age = useStorage('age', '10');
@@ -30,5 +33,7 @@
       <TabbableTextarea v-model="comment" style="width:100%; height:300px;" />
     </form>
     <button @click="flash('Test', 'it works')">Click Me</button>
+    <button @click="state.name = 'changed name'">Change Quiz Name</button>
+    {{ state }}
   </main>
 </template>

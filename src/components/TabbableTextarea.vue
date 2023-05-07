@@ -5,10 +5,12 @@
         v-text="modelValue" 
     />
     <h5>{{ name }}</h5>
+    {{ state }}
 </template>
   
 <script setup>
 import { inject } from 'vue';
+import { state } from "@/stores/quizStore.js"
 
 defineProps({
     modelValue: String
